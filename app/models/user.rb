@@ -12,6 +12,8 @@ class User < ApplicationRecord
   
 #メールアドレスの正規表現
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, format: {with: VALID_EMAIL_REGEX}
+  
 #15文字まで許可するようにバリデーションを設定
   validates :name, length: { maximum: 15}
   
