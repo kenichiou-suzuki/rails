@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def new
-    @toic = Topic.find(params[:topic_id])
+    @topic = Topic.find(params[:topic_id])
     @comment = Comment.new
   end
   
@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comments = Comment.all
     
     if @comment.save
-      redirect_to comments_path, success: 'コメントしました'
+      redirect_to new_topic_comment_path, success: 'コメントしました'
     else
       flash.now[:danger] = "コメントに失敗しました"
       render :new

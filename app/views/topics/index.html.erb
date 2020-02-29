@@ -27,8 +27,10 @@
              <P class="topic-text">
                <%= topic.description %>
              </P>
-             <hr>
-             <h3>コメント</h3>
+             <h4>コメント</h4>
+              <% topic.comments.each do |comment| %>
+               <p><%= comment.comment %></p>
+              <% end %>
           </div>
         </div>
       </div>
